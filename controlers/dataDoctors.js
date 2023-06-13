@@ -10,3 +10,5 @@ const addDoctor = async (req, res) => {
 };
 
 module.exports = { addDoctor: addDoctor };
+
+// Push
