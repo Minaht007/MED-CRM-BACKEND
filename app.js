@@ -4,6 +4,7 @@ const path = require("path");
 require("dotenv").config();
 const indexRouter = require("./routes/api/index");
 const doctorRouters = require("./routes/api/doctrorRouters");
+
 const app = express();
 app.use(cors());
 app.use(express.json());
