@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { addDoctor } = require("../../controlers/dataDoctors");
+// function import
+const { addDoctor, getAllDoctors } = require("../../controlers/dataDoctors");
 
+router.get("/", getAllDoctors);
 router.post("/", addDoctor);
 
 module.exports = router;
