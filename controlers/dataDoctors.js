@@ -1,11 +1,9 @@
 const DoctorData = require("../models/doctorSchema");
 const HttpError = require("../helper/HttpError");
 
-const getAllDoctors = async (req, res, next) => {
-  const doctors = await listdoctors(req.user, req.query);
-  // if (!doctors) {
-  //   throw new HttpError(404, "Doctor not found");
-  // }
+const getAllDoctors = async (req, res) => {
+  const doctors = await doctors.find();
+  console.log(doctors);
   return res.status(200).json(doctors);
 };
 
