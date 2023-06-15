@@ -2,7 +2,7 @@ const DoctorData = require("../models/doctorSchema");
 const HttpError = require("../helper/HttpError");
 
 const getAllDoctors = async (req, res) => {
-  const doctors = await doctors.find();
+  const doctors = await DoctorData.find();
   console.log(doctors);
   return res.status(200).json(doctors);
 };
