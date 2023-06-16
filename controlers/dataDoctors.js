@@ -7,7 +7,7 @@ const getAllDoctors = async (req, res) => {
   return res.status(200).json(doctors);
 };
 
-const addDoctor = async (req, res) => {
+const addDoctor = async (res, req) => {
   const result = await DoctorData.create(req.body);
   if (!result) {
     throw new HttpError(404, "Doctor not create");

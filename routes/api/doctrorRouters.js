@@ -11,4 +11,6 @@ router.get("/", getAllDoctors);
 router.post("/", addDoctor);
 router.patch("/", updateDoctor);
 
+// console.log(router);
+
 module.exports = router;
