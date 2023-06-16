@@ -15,8 +15,8 @@ const addDoctor = async (res, req) => {
   res.status(201).json(result);
 };
 
-const updateDoctor = async (res, req) => {
-  const { name, secomdName, id } = req.body;
+const updateDoctor = async (req, res) => {
+  const { name, secomdName, id } = req.params;
   const result = await DoctorData.findByIdAndUpdate(
     { _id: id },
     {
@@ -27,7 +27,7 @@ const updateDoctor = async (res, req) => {
   if (!result) {
     throw new HttpError(404, "Doctor not update");
   }
-  console.log(result);
+
   return res.status(200).json(result);
 };
 

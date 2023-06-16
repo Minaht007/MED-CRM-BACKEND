@@ -9,7 +9,7 @@ const {
 
 router.get("/", getAllDoctors);
 router.post("/", addDoctor);
-router.patch("/", updateDoctor);
+router.patch("/:id", updateDoctor);
 
 // console.log(router);
 
