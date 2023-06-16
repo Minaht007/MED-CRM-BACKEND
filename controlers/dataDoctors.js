@@ -15,6 +15,26 @@ const addDoctor = async (req, res) => {
   res.status(201).json(result);
 };
 
-module.exports = { addDoctor: addDoctor, getAllDoctors: getAllDoctors };
+const updateDoctor = async (res, req) => {
+  const { name, secomdName, id } = req.body;
+  const result = await DoctorData.findByIdAndUpdate(
+    { _id: id },
+    {
+      name: name,
+      secomdName: secomdName,
+    }
+  );
+  if (!result) {
+    throw new HttpError(404, "Doctor not update");
+  }
+  console.log(result);
+  return res.status(200).json(result);
+};
+
+module.exports = {
+  addDoctor: addDoctor,
+  getAllDoctors: getAllDoctors,
+  updateDoctor: updateDoctor,
+};
 
 // Push
