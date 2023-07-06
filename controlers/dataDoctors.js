@@ -8,6 +8,7 @@ const getAllDoctors = async (req, res) => {
   const doctors = await DoctorData.find();
   return res.status(200).json(doctors);
 };
+
 const getByname = (req, res) => {
   const { name, secondName } = req.query;
   const doctors = DoctorData.find({ name: name, secondName: secondName });
@@ -17,7 +18,7 @@ const getByname = (req, res) => {
   return res.status(200).json(doctors);
 };
 
-const addDoctor = async (res, req) => {
+const addDoctor = async (req, res) => {
   const result = await DoctorData.create(req.body);
   // if (!result) {
   //   throw new HttpError(404, "Doctor not create");
@@ -26,12 +27,12 @@ const addDoctor = async (res, req) => {
 };
 
 const updateDoctor = async (req, res) => {
-  const { name, secomdName, id } = req.params;
+  const { name, secondName, id } = req.params;
   const result = await DoctorData.findByIdAndUpdate(
     { _id: id },
     {
       name: name,
-      secomdName: secomdName,
+      secondName: secondName,
     }
   );
   if (!result) {
@@ -41,7 +42,7 @@ const updateDoctor = async (req, res) => {
 };
 
 const deleteDoctors = (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const result = DoctorData.findByIdAndDelete({ _id: id });
   if (!result) {
     throw new HttpError(404, "Doctor not delete");

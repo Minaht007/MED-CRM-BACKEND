@@ -15,6 +15,4 @@ router.post("/", addDoctor);
 router.patch("/:id", updateDoctor);
 router.delete("/:id", deleteDoctors);
 
-// console.log(router);
-
 module.exports = router;
