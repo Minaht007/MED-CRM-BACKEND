@@ -10,7 +10,7 @@ const {
 } = require("../../controlers/dataDoctors");
 
 router.get("/", getAllDoctors);
-router.get("/", getByname);
+router.get("/:name", getByname);
 router.post("/", addDoctor);
 router.patch("/:id", updateDoctor);
 router.delete("/:id", deleteDoctors);
