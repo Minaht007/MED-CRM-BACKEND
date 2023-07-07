@@ -18,11 +18,12 @@ const getByname = (req, res) => {
 };
 
 const addClient = async (req, res) => {
-  const result = await ClientData.create(req.body);
-  // if (!result) {
-  //   throw new HttpError(404, "Doctor not create");
-  // }
-  res.status(200).json(result);
+  try {
+    const result = await ClientData.create(req.body);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating client" });
+  }
 };
 
 const updateClient = async (req, res) => {
