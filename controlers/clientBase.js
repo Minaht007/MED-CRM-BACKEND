@@ -40,7 +40,7 @@ const updateClient = async (req, res) => {
   return res.status(200).json(result);
 };
 
-const deleteDoctors = (req, res) => {
+const deleteClient = (req, res) => {
   const { id } = req.params;
   const result = ClientData.findByIdAndDelete({ _id: id });
   if (!result) {
@@ -54,5 +54,5 @@ module.exports = {
   getByname: getByname,
   addClient: addClient,
   updateClient: updateClient,
-  deleteDoctors: deleteDoctors,
+  deleteClient: deleteClient,
 };
