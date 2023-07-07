@@ -7,6 +7,7 @@ const indexRouter = require("./routes/api/index");
 const usersRouter = require("./routes/api/users");
 
 const doctorRouters = require("./routes/api/doctrorRouters.js");
+const clientRouters = require("./routes/api/clienrRouters.js");
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ app.use("/users", usersRouter);
 
 // // Маршруты
 app.use("/api/doctor", doctorRouters);
+app.use("/api/client", clientRouters);
 
 // // Mistaks
 // app.use((err, req, res, next) => {
