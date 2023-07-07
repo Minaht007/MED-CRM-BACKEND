@@ -41,9 +41,9 @@ const updateClient = async (req, res) => {
   return res.status(200).json(result);
 };
 
-const deleteClient = (req, res) => {
+const deleteClient = async (req, res) => {
   const { id } = req.params;
-  const result = ClientData.findByIdAndDelete({ _id: id });
+  const result = await ClientData.findByIdAndDelete({ _id: id });
   if (!result) {
     throw new HttpError(404, "Doctor not delete");
   }
