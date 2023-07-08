@@ -9,13 +9,13 @@ const getAllDoctors = async (req, res) => {
   return res.status(200).json(doctors);
 };
 
-const getByname = (req, res) => {
-  const { name, secondName } = req.query;
-  const doctors = DoctorData.find({ name: name, secondName: secondName });
-  if (!doctors) {
+const getByname = async (req, res) => {
+  const { id } = req.params;
+  const doctor = await DoctorData.findById(id);
+  if (!doctor) {
     throw new HttpError(404, "Doctor not found");
   }
-  return res.status(200).json(doctors);
+  return res.status(200).json(doctor);
 };
 
 const addDoctor = async (req, res) => {
@@ -27,25 +27,27 @@ const addDoctor = async (req, res) => {
 };
 
 const updateDoctor = async (req, res) => {
-  const { name, secondName, id } = req.params;
+  const { name, secondName, speciality } = req.body;
+  const { id } = req.params;
   const result = await DoctorData.findByIdAndUpdate(
     { _id: id },
     {
       name: name,
       secondName: secondName,
+      speciality: speciality,
     }
   );
   if (!result) {
-    throw new HttpError(404, "Doctor not update");
+    throw new HttpError(404, "Doctor not found");
   }
   return res.status(200).json(result);
 };
 
-const deleteDoctors = (req, res) => {
+const deleteDoctors = async (req, res) => {
   const { id } = req.params;
-  const result = DoctorData.findByIdAndDelete({ _id: id });
+  const result = await DoctorData.findByIdAndDelete({ _id: id });
   if (!result) {
-    throw new HttpError(404, "Doctor not delete");
+    throw new HttpError(404, "Doctor not found");
   }
   return res.status(200).json(result);
 };

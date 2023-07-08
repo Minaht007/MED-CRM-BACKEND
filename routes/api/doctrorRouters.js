@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// function import
+
 const {
   addDoctor,
   getAllDoctors,
@@ -10,7 +10,7 @@ const {
 } = require("../../controlers/dataDoctors");
 
 router.get("/", getAllDoctors);
-router.get("/:name", getByname);
+router.get("/:id", getByname);
 router.post("/", addDoctor);
 router.patch("/:id", updateDoctor);
 router.delete("/:id", deleteDoctors);
