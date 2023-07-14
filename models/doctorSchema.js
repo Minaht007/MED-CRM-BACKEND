@@ -7,6 +7,7 @@ const doctorSchema = new Schema(
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
     speciality: { type: String, required: true },
+    password: { type: String, required: true },
   },
   { versionKey: false, timestamps: true }
 );

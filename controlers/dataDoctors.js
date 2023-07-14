@@ -59,5 +59,3 @@ module.exports = {
   deleteDoctors: deleteDoctors,
   getByname: getByname,
 };
-
-// Push
