@@ -18,12 +18,16 @@ const getByname = (req, res) => {
   return res.status(200).json(doctors);
 };
 
-const addClient = async (req, res) => {
+const addClient = async (req, res, next) => {
+  const { name, email, phone } = req.body;
+  if (!name || !email || !phone) {
+    return res.status(400).json({ message: "missing required name field" });
+  }
   try {
-    const result = await ClientData.create(req.body);
-    return res.status(201).json(result);
+    const result = await ClientData.create({ name, email, phone });
+    res.status(201).json(result);
   } catch (error) {
-    return res.status(500).json({ message: "Error creating client" });
+    next(error);
   }
 };
 
