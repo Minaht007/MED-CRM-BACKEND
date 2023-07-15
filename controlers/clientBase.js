@@ -21,12 +21,9 @@ const getByname = (req, res) => {
 const addClient = async (req, res) => {
   try {
     const result = await ClientData.create(req.body);
-    if (!result) {
-      throw new Error("Client not created");
-    }
-    res.status(201).json(result);
+    return res.status(201).json(result);
   } catch (error) {
-    throw new HttpError(500, "Error creating client");
+    return res.status(500).json({ message: "Error creating client" });
   }
 };
 
