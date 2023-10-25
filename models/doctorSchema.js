@@ -2,9 +2,9 @@ const { Schema, model } = require("mongoose");
 
 const doctorSchema = new Schema(
   {
-    name: { type: String, required: true },
-    secondName: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    name: { type: String },
+    secondName: { type: String },
+    email: { type: String, unique: true },
     phone: { type: String },
     speciality: { type: String },
     specialization: {type: String},
@@ -12,14 +12,16 @@ const doctorSchema = new Schema(
     scientific: {type: String},
     experiens: {type: String},
     price: {type: String},
-    password: { type: String, required: true },
-    education: { type: String, required: true },
-    trainings: { type: String, required: true },
-    association: { type: String, required: true },
-    procedures: { type: String, required: true },
-    diplomes: { type: String, required: true },
-    desases: { type: String, required: true },
-    departure: {type: Boolean}
+    password: { type: String  },
+    education: { type: String },
+    trainings: { type: String },
+    association: { type: String },
+    procedures: { type: String },
+    diplomes: { type: String },
+    desases: { type: String },
+    departure: {type: Boolean},
+    video: {type: Boolean},
+    role: {type: []}
   },
   { versionKey: false, timestamps: true }
 );
