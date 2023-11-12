@@ -1,36 +1,36 @@
-// const mongoose = require("mongoose");
-// const app = require("./app");
-// require("dotenv").config();
-
-// const { Doctors_HOST, Client_HOST } = process.env;
-// const dbURI = `${Doctors_HOST},${Client_HOST}`;
-
-// mongoose
-//   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log("Connected to MongoDB");
-//     app.listen(3090, () => {
-//       console.log("Server is running on port 3090");
-//     });
-//   })
-//   .catch((error) => {
-//     console.error("Error connecting to MongoDB:", error);
-//     process.exit(1);
-//   });
-
 const mongoose = require("mongoose");
-const app = require("./app");
+const app = require("./src/app");
 require("dotenv").config();
 
-const { Doctors_HOST } = process.env;
 
-mongoose
-  .connect(Doctors_HOST)
-  .then(() => {
-    app.listen(3090);
-    console.log("Database connection successful");
-  })
-  .catch((error) => {
-    console.log(error.messages);
-    process.exit(1);
-  });
+ const { DB_HOST, PORT = 3090 } = process.env;
+
+ async function start() {
+    try {
+      await mongoose.connect(DB_HOST);
+      app.listen(PORT, () => {
+        console.log(`Server running. Use our API on port: ${PORT}`);
+      });
+    } catch (err) {
+      console.log(`Server not running. Error message: ${err.message}`);
+      process.exit(1);
+    }
+  }
+
+ start();
+
+// const { PORT = 3090 } = process.env;
+// async function start() {
+//    try {
+//      await app.listen(PORT, () => {
+//        console.log(`Server running. Use our API on port: ${PORT}`);
+//      });
+//    } catch (err) {
+//      console.log(`Server not running. Error message: ${err.message}`);
+//      process.exit(1);
+//    }
+//  }
+
+// start();
+
+
