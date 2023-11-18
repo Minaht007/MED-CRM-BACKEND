@@ -17,7 +17,12 @@ require("dotenv").config();
     }
   }
 
- start();
+
+start();
+
+
+
+
 
 // const { PORT = 3090 } = process.env;
 // async function start() {

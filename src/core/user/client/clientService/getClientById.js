@@ -1,4 +1,4 @@
-const ClientData = require("../../client/clientModel");
+const ClientData = require("../clientModel");
 
 const getClientById = async (id) => {
   const result = await ClientData.findById(id)

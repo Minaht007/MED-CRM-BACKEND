@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const createError = require('http-errors');
 const ClientData = require("../../user/client/clientModel");
 const createAuthDto = require("../dtos/authDto");
@@ -14,7 +15,7 @@ const login = async (email, password) => {
   }
   const authDtoInstance = createAuthDto(client); 
   const generateAccessToken = tokenService.accessToken({...authDtoInstance });
-  const generateRefreshToken = tokenService.refreshToken();
+  const generateRefreshToken = tokenService.refreshToken({...authDtoInstance });
   await tokenService.saveToken(createAuthDto.id, generateRefreshToken.refreshToken);
   return {
     ...generateAccessToken, generateRefreshToken,

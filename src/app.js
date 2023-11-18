@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require ("cookie-parser");
 const path = require("path");
 const createError = require("http-errors");
+const morgan = require('morgan');
 
 require("dotenv").config();
 const indexRouter = require("./index");
@@ -11,6 +12,7 @@ const clientRouter = require("./core/user/client/clientRouter");
 const doctorRouter = require("./core/user/doctor/doctorRouter");
 
 const app = express();
+app.use(morgan('combined'));
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
