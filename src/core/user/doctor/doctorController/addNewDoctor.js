@@ -6,7 +6,11 @@ const addNewDoctor = async (req, res) => {
     // if (!result) {
     //   throw new HttpError(404, "Doctor not create");
     // }
-    res.status(200).json(result);
+    res.status(201).json({
+			status: "created",
+			code: "201",
+			result: result,
+		});
   };
 
 module.exports = addNewDoctor; 

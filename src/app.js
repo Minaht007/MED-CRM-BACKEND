@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const cookieParser = require ("cookie-parser");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const createError = require("http-errors");
-const morgan = require('morgan');
+const morgan = require("morgan");
 
 require("dotenv").config();
 const indexRouter = require("./index");
@@ -12,7 +12,7 @@ const clientRouter = require("./core/user/client/clientRouter");
 const doctorRouter = require("./core/user/doctor/doctorRouter");
 
 const app = express();
-app.use(morgan('combined'));
+app.use(morgan("combined"));
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -25,18 +25,17 @@ app.use("/api/doctor", doctorRouter);
 app.use("/api/client", clientRouter);
 
 app.use((req, res) => {
-  res.status(404).json({ message: 'Not found' });
+	res.status(404).json({ message: "Not found" });
 });
 
-
 // Mistaks
- app.use((err, req, res, next) => {
-   const { status = 500, message = "Server error" } = err;
-   res.status(status).json({ message });
- });
- app.use(function (req, res, next) {
-   next(createError(404));
- });
+app.use((err, req, res, next) => {
+	const { status = 500, message = "Server error" } = err;
+	res.status(status).json({ message });
+});
+app.use(function (req, res, next) {
+	next(createError(404));
+});
 
 // ...
 
