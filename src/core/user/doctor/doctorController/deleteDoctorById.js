@@ -7,7 +7,11 @@ const deleteDoctorById = async (req, res) => {
     if (!result) {
       throw new HttpError(404, "Doctor not found");
     }
-    return res.status(200).json(result);
+    return res.status(200).json({
+			status: "deleted",
+			code: "200",
+			result: result,
+		});
   };
 
 module.exports = deleteDoctorById;

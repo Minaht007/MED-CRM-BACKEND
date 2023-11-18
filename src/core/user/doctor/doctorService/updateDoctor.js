@@ -1,7 +1,7 @@
 const DoctorData = require("../doctorModel");
 
-const updateDoctorById = id => {
-  const result = DoctorData.findByIdAndUpdate(id);
+const updateDoctorById = ({_id, body})=> {
+  const result = DoctorData.findByIdAndUpdate(_id, body, { new: true });
   return result;
 };
 
