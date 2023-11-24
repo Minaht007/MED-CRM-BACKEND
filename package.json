@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "commonjs",
   "engines": {
-    "npm": ">=9.5.1",
-    "node": ">=v18.15.0"
+    "npm": ">=10.1.0",
+    "node": ">=v18.18.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
