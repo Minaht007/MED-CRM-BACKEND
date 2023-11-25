@@ -1,8 +1,8 @@
 const DoctorData = require("../doctorModel");
 
-const getAllDoctors = async (req, res) => {
+const getAllDoctors = async () => {
   const result = await DoctorData.find()
-  return res.status(200).json(doctors);
+  return result;
 };
 
 module.exports = getAllDoctors;
