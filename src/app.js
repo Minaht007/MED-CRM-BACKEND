@@ -13,6 +13,7 @@ const clientRouter = require("./core/user/client/clientRouter");
 const doctorRouter = require("./core/user/doctor/doctorRouter");
 
 const app = express();
+app.use(punycode());
 app.use(morgan("combined"));
 app.use(cors());
 app.use(express.json());
