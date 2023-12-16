@@ -1,15 +1,18 @@
-const registerClient = require("./registerClient");
-const registerDoctor = require("./registerDoctor"); 
+const register = require("./register");
 const login = require("./login");
 const logout = require("./logout");
 const mail = require("./mail");
 const token = require("./token");
+const refresh = require("./refresh");
+const deletedUser = require("./deletedUser");
+
 
 module.exports = {
-  registerClient,
-  registerDoctor,
-  login,
-  mail,
-  token,
-  logout
+	register,
+	login,
+	mail,
+	token,
+	logout,
+	refresh,
+	deletedUser,
 };

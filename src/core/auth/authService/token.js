@@ -1,6 +1,18 @@
 const jwt = require("jsonwebtoken");
 const tokenModel = require("../tokenModel");
 
+const { JWT_ACCESS_SECRET_KEY } = process.env;
+
+const token = (payload) => {
+	const result = jwt.sign(payload, JWT_ACCESS_SECRET_KEY, { expiresIn: "30d" });
+	return result;
+};
+
+
+
+
+
+
 const accessToken = (payload) => {
     const result = jwt.sign(payload, process.env.JWT_ACCESS_SECRET_KEY, {expiresIn: "15m"}) 
     return result;
@@ -50,6 +62,7 @@ const findToken = async (refreshToken) => {
 }
 
 const tokenService = {
+  token,
     accessToken,
     refreshToken,
     saveToken,

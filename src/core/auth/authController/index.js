@@ -1,17 +1,17 @@
-const registerClient = require("./registerClient");
-const registerDoctor = require("./registerDoctor")
+const register = require("./register");
 const login = require("./login");
 const logout = require("./logout");
 const activate = require("./activate");
 const refresh = require("./refresh");
 const googleAuth = require("./googleAuth");
+const deleteUser = require("./deleteUser");
 
 module.exports = {
-  registerClient,
-  registerDoctor,
-  login,
-  logout,
-  activate,
-  refresh,
-  googleAuth
+	register,
+	login,
+	logout,
+	activate,
+	refresh,
+	googleAuth,
+	deleteUser
 };
