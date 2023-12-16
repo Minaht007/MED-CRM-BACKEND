@@ -9,8 +9,7 @@ const punycode = require("punycode/");
 require("dotenv").config();
 const indexRouter = require("./index");
 const authRouter = require("./core/auth/authRouter");
-const clientRouter = require("./core/user/client/clientRouter");
-const doctorRouter = require("./core/user/doctor/doctorRouter");
+const userRouter = require("./core/user/usersRouter");
 
 const app = express();
 app.use(morgan("combined"));
@@ -21,9 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/auth", authRouter);
-app.use("/api/doctor", doctorRouter);
-app.use("/api/client", clientRouter);
+app.use("/auth", authRouter);
+app.use("/api", userRouter);
+
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });

@@ -3,12 +3,11 @@ const ctrlAuth = require("./authController");
 
 const router = express.Router();
 
-router.post("/registration/client", ctrlAuth.registerClient);
-router.post("/registration/doctor", ctrlAuth.registerDoctor);
+router.post("/register", ctrlAuth.register);
 router.post("/login", ctrlAuth.login);
-router.post("/logout", ctrlAuth.logout);
-router.get("/activate/:link", ctrlAuth.activate);
-router.get("/refresh", ctrlAuth.refresh);
-
+router.post("/logout/:id", ctrlAuth.logout);
+// router.get("/activate/:link", ctrlAuth.activate);
+router.get("/current", ctrlAuth.refresh);
+router.delete("/delete/:id", ctrlAuth.deleteUser);
 
 module.exports = router;
