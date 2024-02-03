@@ -19,6 +19,7 @@ const DoctorSchema = new Schema(
 		procedures: { type: String, required: false },
 		diplomas: { type: String, required: false },
 		treatment: { type: String, required: false },
+		info: { type: Boolean, required: false },
 	},
 	{ _id: false }
 );
