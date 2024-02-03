@@ -1,14 +1,8 @@
+const { string } = require("joi");
 const { Schema } = require("mongoose");
 
 const DoctorSchema = new Schema(
 	{
-		name: { type: String, required: false },
-		secondName: { type: String, required: false },
-		foto: { type: String, required: false },
-		phone: { type: String, required: false },
-		male: { type: String, required: false },
-		addresses: { type: String, required: false },
-
 		home: { type: Boolean, default: false },
 		video: { type: Boolean, default: false },
 		speciality: { type: String, required: false },
@@ -31,13 +25,6 @@ const DoctorSchema = new Schema(
 
 const ClientSchema = new Schema(
 	{
-		name: { type: String, required: false },
-		secondName: { type: String, required: false },
-		foto: { type: String, required: false },
-		phone: { type: String, required: false },
-		male: { type: String, required: false },
-		addresses: { type: String, required: false },
-
 		weight: { type: String, required: false },
 		height: { type: String, required: false },
 		blood: { type: String, required: false },
@@ -52,7 +39,21 @@ const ClientSchema = new Schema(
 	{ _id: false }
 );
 
+const BaseSchema = new Schema(
+	{
+		name: { type: String, required: false },
+		secondName: { type: String, required: false },
+		foto: { type: String, required: false },
+		phone: { type: String, required: false },
+		male: { type: String, required: false },
+		addresses: { type: String, required: false },
+		sos: { type: String, required: false },
+	},
+	{ _id: false }
+);
+
 module.exports = {
 	DoctorSchema,
 	ClientSchema,
+	BaseSchema,
 };

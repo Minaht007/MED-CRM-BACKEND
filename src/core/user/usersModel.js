@@ -1,11 +1,12 @@
 const { Schema, model } = require("mongoose");
-const { DoctorSchema , ClientSchema} = require("./fullInfoModel");
+const { DoctorSchema , ClientSchema,BaseSchema} = require("./fullInfoModel");
 
 const UsersSchema = new Schema(
 	{
 		email: { type: String, unique: true, required: true },
 		password: { type: String, required: true },
 		role: { type: String, required: true },
+		baseInfo: BaseSchema,
 		doctor: DoctorSchema,
 		client: ClientSchema,
 		token: { type: String, required: false },
