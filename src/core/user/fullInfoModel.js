@@ -3,8 +3,8 @@ const { Schema } = require("mongoose");
 
 const DoctorSchema = new Schema(
 	{
-		home: { type: Boolean, default: false },
-		video: { type: Boolean, default: false },
+		home: { type: String, default: false },
+		video: { type: String, default: false },
 		speciality: { type: String, required: false },
 		specialization: { type: String, required: false },
 		qualification: { type: String, required: false },
