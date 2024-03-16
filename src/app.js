@@ -10,6 +10,8 @@ require("dotenv").config();
 const indexRouter = require("./index");
 const authRouter = require("./core/auth/authRouter");
 const userRouter = require("./core/user/usersRouter");
+const eventRouter = require("./core/event/eventsRouter");
+
 
 const app = express();
 app.use(morgan("combined"));
@@ -22,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/api", userRouter);
+app.use("/event", eventRouter);
 
 
 app.use((req, res) => {
