@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const { DoctorSchema , ClientSchema,BaseSchema} = require("./fullInfoModel");
+const { DoctorSchema, ClientSchema, BaseSchema, ClinicSchema } = require("./fullInfoModel");
 
 const UsersSchema = new Schema(
 	{
@@ -9,6 +9,7 @@ const UsersSchema = new Schema(
 		baseInfo: BaseSchema,
 		doctor: DoctorSchema,
 		client: ClientSchema,
+		clinic: ClinicSchema,
 		token: { type: String, required: false },
 		isActivated: { type: Boolean, default: false },
 		activationLink: { type: String },
@@ -18,8 +19,4 @@ const UsersSchema = new Schema(
 
 const UsersData = model("users", UsersSchema);
 
-module.exports = UsersData
-
-
-
-
+module.exports = UsersData;

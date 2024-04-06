@@ -3,6 +3,8 @@ const getAllClient = require("./getAllClient");
 const getUserById = require("./getUserById");
 const editUser = require("./editUser");
 const editUsersBaseInfo = require('./editUserBaseInfo')
+const getAllClinic = require("./getAllClinic");
+
 
 module.exports = {
 	getUserById,
@@ -10,4 +12,5 @@ module.exports = {
 	getAllDoctor,
 	editUser,
 	editUsersBaseInfo,
+	getAllClinic,
 };
