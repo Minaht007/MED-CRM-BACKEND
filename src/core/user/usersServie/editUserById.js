@@ -9,20 +9,16 @@ const editUserById = async (id, req, token) => {
 	}
 
 	if (user.role === "client") {
-		const updateClient = await UsersData.findByIdAndUpdate(
-			id,
-			{ client: req.body },
-			{ new: true }
-		);
+		const updateClient = await UsersData.findByIdAndUpdate(id, { client: req.body }, { new: true });
 		return updateClient;
 	}
 	if (user.role === "doctor") {
-		const updateDoctor = await UsersData.findByIdAndUpdate(
-			id,
-			{ doctor: req.body },
-			{ new: true }
-		);
+		const updateDoctor = await UsersData.findByIdAndUpdate(id, { doctor: req.body }, { new: true });
 		return updateDoctor;
+	}
+	if (user.role === "clinic") {
+		const updateClinic = await UsersData.findByIdAndUpdate(id, { clinic: req.body }, { new: true });
+		return updateClinic;
 	}
 };
 

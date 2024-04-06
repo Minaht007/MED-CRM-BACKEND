@@ -23,6 +23,7 @@ const DoctorSchema = new Schema(
 		startTime: { type: String, required: false },
 		endTime: { type: String, required: false },
 		workDays: { type: Array, required: false },
+		seansTime:{type:String, required: false},
 	},
 	{ _id: false }
 );
@@ -39,6 +40,21 @@ const ClientSchema = new Schema(
 		familyIllnesses: { type: String, required: false },
 		documents: { type: String, required: false },
 		surgeryHistory: { type: String, required: false },
+	},
+	{ _id: false }
+);
+
+const ClinicSchema = new Schema(
+	{
+		name: { type: String, required: false },
+		logo: { type: String, required: false },
+		license: { type: String, required: false },
+		about: { type: String, required: false },
+		revues: { type: String, required: false },
+		location: { type: Array, required: false },
+		network: { type: Array, required: false },
+		lines: { type: Array, required: false },
+		doctors: { type: Array, required: false },
 	},
 	{ _id: false }
 );
@@ -60,4 +76,5 @@ module.exports = {
 	DoctorSchema,
 	ClientSchema,
 	BaseSchema,
+	ClinicSchema,
 };

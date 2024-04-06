@@ -4,6 +4,8 @@ const ctrlUser = require("../user/usersController");
 
 router.get("/doctor", ctrlUser.getAllDoctor);
 router.get("/client", ctrlUser.getAllClient);
+router.get("/clinic", ctrlUser.getAllClinic);
+
 router.get("/user/:id", ctrlUser.getUserById);
 router.patch("/edit/:id", ctrlUser.editUser);
 router.patch("/base/:id", ctrlUser.editUsersBaseInfo)
