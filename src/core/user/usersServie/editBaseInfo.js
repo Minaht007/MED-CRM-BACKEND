@@ -8,7 +8,8 @@ const editBaseInfo = async (id, req, token) => {
 		throw createError("Wrong Full");
 	}
 	const updateClient = await UsersData.findByIdAndUpdate(id, { baseInfo: req.body }, { new: true });
-	return updateClient;
+
+	return updateClient.baseInfo;
 };
 
 module.exports = editBaseInfo;

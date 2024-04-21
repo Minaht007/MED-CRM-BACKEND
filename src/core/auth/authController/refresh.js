@@ -17,7 +17,4 @@ const refresh = async (req, res, next) => {
 
 module.exports = refresh;
 
-// res.cookie("refreshToken", client.refreshToken, {
-// 	maxAge: 30 * 24 * 60 * 60 * 1000,
-// 	httpOnly: true,
-// });
+
