@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const { Schema, model } = require("mongoose");
 
 const EventSchema = new Schema(
@@ -7,6 +8,7 @@ const EventSchema = new Schema(
 		doctorId: { type: String, required: true },
 		pacientId: { type: String, required: true },
 		start: { type: String, required: true },
+		end: { type: String, required: true },
 		title: { type: String, required: true },
 		createdAt: { type: Date, default: Date.now, expires: "90d" },
 	},

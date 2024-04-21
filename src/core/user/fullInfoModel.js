@@ -1,6 +1,20 @@
 const { string } = require("joi");
 const { Schema } = require("mongoose");
 
+const DoctorSchedule = new Schema(
+	{
+		doctorDaysOfWeek: [
+			{
+				startTime: { type: String, required: false },
+				endTime: { type: String, required: false },
+				daysOfWeek: { type: Array, required: false },
+			},
+		],
+		seansTime: { type: String, required: false },
+	},
+	{ _id: false }
+);
+
 const DoctorSchema = new Schema(
 	{
 		home: { type: String, default: false },
@@ -11,7 +25,6 @@ const DoctorSchema = new Schema(
 		scientific: { type: String, required: false },
 		experience: { type: String, required: false },
 		cost: { type: String, required: false },
-		schedule: { type: String, required: false },
 		about: { type: String, required: false },
 		education: { type: String, required: false },
 		courses: { type: String, required: false },
@@ -20,10 +33,6 @@ const DoctorSchema = new Schema(
 		diplomas: { type: String, required: false },
 		treatment: { type: String, required: false },
 		info: { type: Boolean, required: false },
-		startTime: { type: String, required: false },
-		endTime: { type: String, required: false },
-		workDays: { type: Array, required: false },
-		seansTime:{type:String, required: false},
 	},
 	{ _id: false }
 );
@@ -63,7 +72,7 @@ const BaseSchema = new Schema(
 	{
 		name: { type: String, required: false },
 		secondName: { type: String, required: false },
-		foto: { type: String, required: false },
+		photo: { type: String, required: false },
 		phone: { type: String, required: false },
 		male: { type: String, required: false },
 		addresses: { type: String, required: false },
@@ -77,4 +86,5 @@ module.exports = {
 	ClientSchema,
 	BaseSchema,
 	ClinicSchema,
+	DoctorSchedule,
 };

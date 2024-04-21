@@ -8,7 +8,7 @@ const loginUser = async (req, res, next) => {
 		res.json({
 			status: "ok",
 			code: "200",
-			body: user,
+			body: user.token,
 		});
 	} catch (error) {
 		next(error);
@@ -16,8 +16,3 @@ const loginUser = async (req, res, next) => {
 };
 
 module.exports = loginUser;
-
-// res.cookie("refreshToken", user.refreshToken, {
-// 	maxAge: 30 * 24 * 60 * 60 * 1000,
-// 	httpOnly: true,
-// });

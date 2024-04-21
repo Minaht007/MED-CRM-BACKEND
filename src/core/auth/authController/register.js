@@ -8,7 +8,7 @@ const registerNewUser = async (req, res, next) => {
 		res.status(201).json({
 			status: "created Success",
 			code: "201",
-			body: userData,
+			body: userData.token,
 		});
 	} catch (error) {
 		next(error);
@@ -17,7 +17,3 @@ const registerNewUser = async (req, res, next) => {
 
 module.exports = registerNewUser;
 
-//res.cookie("refreshToken", userData.refreshToken, {
-// 	maxAge: 30 * 24 * 60 * 1000,
-// 	httpOnly: true,
-// });

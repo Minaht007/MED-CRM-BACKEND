@@ -10,15 +10,28 @@ const editUserById = async (id, req, token) => {
 
 	if (user.role === "client") {
 		const updateClient = await UsersData.findByIdAndUpdate(id, { client: req.body }, { new: true });
-		return updateClient;
+		return updateClient.client;
 	}
 	if (user.role === "doctor") {
-		const updateDoctor = await UsersData.findByIdAndUpdate(id, { doctor: req.body }, { new: true });
-		return updateDoctor;
+		if (req.body.path === "schedule") {
+			const updateDoctor = await UsersData.findByIdAndUpdate(
+				id,
+				{ doctorSchedule: req.body },
+				{ new: true }
+			);
+			return updateDoctor.doctorSchedule;
+		} else {
+			const updateDoctor = await UsersData.findByIdAndUpdate(
+				id,
+				{ doctor: req.body },
+				{ new: true }
+			);
+			return updateDoctor.doctor;
+		}
 	}
 	if (user.role === "clinic") {
 		const updateClinic = await UsersData.findByIdAndUpdate(id, { clinic: req.body }, { new: true });
-		return updateClinic;
+		return updateClinic.clinic;
 	}
 };
 

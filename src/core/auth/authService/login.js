@@ -25,15 +25,3 @@ const login = async (email, password) => {
 
 module.exports = login;
 
-// const createAuthDto = require("../dtos/authDto");
-// const tokenService = require("../authService/token");
-
-// const authDtoInstance = createAuthDto(client);
-// const generateAccessToken = tokenService.accessToken({ ...authDtoInstance });
-// const generateRefreshToken = tokenService.refreshToken({ ...authDtoInstance });
-// await tokenService.saveToken(createAuthDto.id, generateRefreshToken.refreshToken);
-// return {
-// 	// ...generateAccessToken,
-// 	// generateRefreshToken,
-// 	auth: createAuthDto,
-// };
