@@ -7,6 +7,7 @@ const EventSchema = new Schema(
 		display: { type: String, required: true },
 		doctorId: { type: String, required: true },
 		pacientId: { type: String, required: true },
+		name: { type: String, required: true },
 		start: { type: String, required: true },
 		end: { type: String, required: true },
 		title: { type: String, required: true },
