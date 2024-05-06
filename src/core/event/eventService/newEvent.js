@@ -5,7 +5,7 @@ const newEvent = async (req, token) => {
 	if (token === "") {
 		throw createError("Wrong Full");
 	}
-	const { start, title, display, end, date, doctorId, pacientId } = req.body;
+	const { start, title, display, end, date, name, doctorId, pacientId } = req.body;
 	const newEvents = await EventsData.create({
 		start,
 		title,
@@ -13,6 +13,7 @@ const newEvent = async (req, token) => {
 		date,
 		doctorId,
 		pacientId,
+		name,
 		end,
 	});
 	return newEvents;
