@@ -7,8 +7,8 @@ const { Server } = require("socket.io");
 
 const { DB_HOST, PORT = 3090 } = process.env;
 
-const devURL = "http://localhost:3000";
-// const deployURL = "https://docworldbase.netlify.app/";
+// const URL = "http://localhost:3000";
+const URL = "https://docworldbase.netlify.app/";
 
 async function start() {
 	try {
@@ -17,8 +17,8 @@ async function start() {
 		const server = http.createServer(app);
 		const io = new Server(server, {
 			cors: {
-				origin: devURL,
-				methods: ["GET", "POST"],
+				origin: URL,
+				methods: ["GET", "POST", "PATCH"],
 				credentials: true,
 			},
 		});
@@ -32,7 +32,7 @@ async function start() {
 
 			socket.on("chat message", (msg) => {
 				console.log(msg);
-				io.emit("newMessage", msg); // Broadcast to all connected clients
+				io.emit("newMessage", msg); 
 			});
 		});
 
