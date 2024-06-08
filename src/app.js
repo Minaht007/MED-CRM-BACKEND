@@ -15,8 +15,12 @@ const messageRouter = require("./core/messager/messageRouter");
 
 const app = express();
 
+// const URL = "http://localhost:3000";
+const URL = "https://docworldbase.netlify.app";
+
 const corsOptions = {
-	origin: ["https://docworldbase.netlify.app/"],
+	origin: [URL],
+	methods: ["GET", "POST", "PATCH"],
 	credentials: true,
 };
 
