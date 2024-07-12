@@ -11,6 +11,7 @@ const EventSchema = new Schema(
 		start: { type: String, required: true },
 		end: { type: String, required: true },
 		title: { type: String, required: true },
+		pacientProblem: { type: String, required: false },
 		createdAt: { type: Date, default: Date.now, expires: "90d" },
 	},
 	{ versionKey: false, timestamps: true }
