@@ -49,6 +49,8 @@ const ClientSchema = new Schema(
 		familyIllnesses: { type: String, required: false },
 		documents: { type: String, required: false },
 		surgeryHistory: { type: String, required: false },
+		nameInsurance: { type: String, required: false },
+		insurance: { type: String, required: false },
 	},
 	{ _id: false }
 );
@@ -77,6 +79,11 @@ const BaseSchema = new Schema(
 		male: { type: String, required: false },
 		addresses: { type: String, required: false },
 		sos: { type: String, required: false },
+		bday: {
+			day: { type: String, required: false },
+			month: { type: String, required: false },
+			year: { type: String, required: false },
+		},
 	},
 	{ _id: false }
 );
