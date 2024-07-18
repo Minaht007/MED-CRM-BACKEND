@@ -12,6 +12,7 @@ const authRouter = require("./core/auth/authRouter");
 const userRouter = require("./core/user/usersRouter");
 const eventRouter = require("./core/event/eventsRouter");
 const messageRouter = require("./core/messager/messageRouter");
+const blankRouter = require("./core/blank/blankRouter");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use("/auth", authRouter);
 app.use("/api", userRouter);
 app.use("/event", eventRouter);
 app.use("/dialog", messageRouter);
+app.use("/blank", blankRouter);
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });
