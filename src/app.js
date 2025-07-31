@@ -21,7 +21,8 @@ const URL = "http://localhost:3000";
 
 const corsOptions = {
 	origin: [URL],
-	methods: ["GET", "POST", "PATCH"],
+	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+	allowedHeaders: ["Content-Type", "Authorization"],
 	credentials: true,
 };
 
