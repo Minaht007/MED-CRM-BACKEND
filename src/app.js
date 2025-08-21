@@ -21,7 +21,8 @@ const URL = "https://docworldbase.netlify.app";
 
 const corsOptions = {
 	origin: [URL],
-	methods: ["GET", "POST", "PATCH"],
+	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+	allowedHeaders: ["Content-Type", "Authorization"],
 	credentials: true,
 };
 
