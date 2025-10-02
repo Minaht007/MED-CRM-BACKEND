@@ -13,6 +13,9 @@ const userRouter = require("./core/user/usersRouter");
 const eventRouter = require("./core/event/eventsRouter");
 const messageRouter = require("./core/messager/messageRouter");
 const blankRouter = require("./core/blank/blankRouter");
+const aiRouter = require("./core/aiHelper/aiRouter");
+
+
 
 const app = express();
 
@@ -39,6 +42,7 @@ app.use("/api", userRouter);
 app.use("/event", eventRouter);
 app.use("/dialog", messageRouter);
 app.use("/blank", blankRouter);
+app.use("/api", aiRouter);
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });
