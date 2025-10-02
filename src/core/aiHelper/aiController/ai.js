@@ -1,4 +1,4 @@
-import Together from "together-ai";
+const Together  = require("together-ai");
 
 const aiMessage = async (req, res) => {
 	try {
