@@ -19,8 +19,10 @@ const aiRouter = require("./core/aiHelper/aiRouter");
 
 const app = express();
 
+const URL = "https://elexir-five.vercel.app/"
+
 // const URL = "http://localhost:3000";
-const URL = "https://docworldbase.netlify.app";
+// const URL = "https://docworldbase.netlify.app";
 
 const corsOptions = {
 	origin: [URL],
