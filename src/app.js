@@ -24,12 +24,17 @@ const URL = "https://elexir-five.vercel.app/"
 // const URL = "http://localhost:3000";
 // const URL = "https://docworldbase.netlify.app";
 
-const corsOptions = {
-	origin: [URL],
-	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-	allowedHeaders: ["Content-Type", "Authorization"],
-	credentials: true,
-};
+// const corsOptions = {
+// 	origin: [URL],
+// 	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+// 	allowedHeaders: ["Content-Type", "Authorization"],
+// 	credentials: true,
+// };
+origin: [
+    "https://your-app.vercel.app", 
+    "http://localhost:3000",       
+  ],
+
 
 app.use(morgan("combined"));
 app.use(cors(corsOptions));
