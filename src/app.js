@@ -18,7 +18,7 @@ const aiRouter = require("./core/aiHelper/aiRouter");
 const app = express();
 
 const corsOptions = {
-	origin: ["https://elexir-five.vercel.app/", "http://localhost:3000"],
+	origin: ["https://elexir-five.vercel.app", "http://localhost:3000"],
 	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 	allowedHeaders: ["Content-Type", "Authorization"],
 	credentials: true,
@@ -26,6 +26,7 @@ const corsOptions = {
 
 app.use(morgan("combined"));
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
