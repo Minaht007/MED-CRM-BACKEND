@@ -15,26 +15,14 @@ const messageRouter = require("./core/messager/messageRouter");
 const blankRouter = require("./core/blank/blankRouter");
 const aiRouter = require("./core/aiHelper/aiRouter");
 
-
-
 const app = express();
 
-// const URL = "https://elexir-five.vercel.app/"
-
-// const URL = "http://localhost:3000";
-// const URL = "https://docworldbase.netlify.app";
-
 const corsOptions = {
-	origin: [
-		"https://elexir-five.vercel.app/", 
-		"http://localhost:3000",       
-	  ],
+	origin: ["https://elexir-five.vercel.app/", "http://localhost:3000"],
 	methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 	allowedHeaders: ["Content-Type", "Authorization"],
 	credentials: true,
 };
-
-
 
 app.use(morgan("combined"));
 app.use(cors(corsOptions));

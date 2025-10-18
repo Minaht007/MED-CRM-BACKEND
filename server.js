@@ -7,11 +7,9 @@ const { Server } = require("socket.io");
 
 const { DB_HOST, PORT = 3090 } = process.env;
 
-
 // const URL = "http://localhost:3000";
 // const URL = "https://docworldbase.netlify.app";
-const URL = "https://elexir-five.vercel.app/"
-
+const URL = "https://elexir-five.vercel.app/";
 
 async function start() {
 	try {
@@ -36,7 +34,7 @@ async function start() {
 
 			socket.on("chat message", (msg) => {
 				console.log(msg);
-				io.emit("newMessage", msg); 
+				io.emit("newMessage", msg);
 			});
 		});
 
